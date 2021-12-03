@@ -1,0 +1,55 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "create-block/uwkc-carousel",
+	"version": "0.1.0",
+	"title": "UWKC Carousel",
+	"category": "design",
+	"icon": "slides",
+	"description": "Carousel block written with ESNext standard and JSX support, using Tiny Slider JS",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"block_id":{
+			"type": "string"
+		},
+		"auto_play":{
+			"type": "boolean",
+			"default": false
+		},
+		"slide_count":{
+			"type": "number",
+			"default": 1
+		},
+		"set_gutter":{
+			"type": "boolean",
+			"default": false
+		},
+		"edge_padding":{
+			"type": "number",
+			"default": 0
+		},
+		"set_mode":{
+			"type": "string",
+			"default": "carousel"
+		},
+		"set_axis":{
+			"type": "string",
+			"default": "horizontal"
+		},
+		"show_arrows":{
+			"type": "boolean",
+			"default": false
+		},
+		"arrow_position":{
+			"type": "string",
+			"default": "bottom"
+		}
+	},
+	"keywords": [ "slide", "carousel"],
+	"textdomain": "uwkc-carousel",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}

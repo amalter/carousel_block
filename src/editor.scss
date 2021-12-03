@@ -1,0 +1,73 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ $white: #fff;
+ $gray: rgb(218, 216, 216);
+ $light-gray: lighten($gray, 10%);
+ $black: #000;
+ $dark-gray: lighten( $black, 20%);
+
+.wp-block-create-block-uwkc-carousel {
+	border: 1px dotted $gray;
+	background-color: $white;
+	h3.block-title{
+		font-size: 1em;
+		padding: 0 5px;
+		color: $dark-gray;
+	}
+	button.components-button.block-editor-button-block-appender{
+		width: auto;
+		margin: auto;
+		display: flex;
+    	flex-direction: row;
+		background-color: $dark-gray;
+		color: $white;
+		&::after{
+			content: "Add New Slide";
+			font-size: 16px;
+		}
+	}
+	&-slide{
+		background-color: $gray;
+		padding:5px;
+		margin: 5px;
+		h4.slide-title{
+			color: lighten( $black, 40%);
+			font-size: small;
+			margin-top: 0;
+		}
+		button.components-button.block-editor-button-block-appender{
+			background-color: $light-gray;
+			color: $black;
+			
+			&::after{
+				content: "Add Slide Content";
+				font-size: small;
+			}
+			
+		}
+	}
+}
+
+#uwkc-carousel-controls {
+    padding: 20px;
+	.blocks-base-control__label{
+		margin-bottom: 8px;
+	}
+	.blocks-base-control__radio{
+		.components-base-control__field{
+			display: flex;
+			flex-wrap: wrap;
+			label.components-base-control__label {
+				width: 100%;
+				flex: 0 0 100%;
+			}
+			.components-radio-control__option:not(:last-child) {
+				min-width: 45%;
+			}
+		}
+	}
+}

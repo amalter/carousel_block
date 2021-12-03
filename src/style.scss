@@ -1,0 +1,104 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ 
+
+ $uwkc-orange: #ec4d30;
+ $black: #000;
+ $uwkc-blue: #768ec5;
+ $uwkc-light-blue: #b2caff;
+
+.wp-block-create-block-uwkc-carousel {
+	.tns-outer{
+		position: relative;
+		button[data-action="stop"], button[data-action="start"]{
+			width: 100%;
+			background: none;
+   			border: none;
+			margin-bottom: 10px;
+			   .stop-start {
+					padding: 3px 8px;
+					border: #000 solid 2px;
+					border-radius: 33%;
+			   }
+		}
+		.tns-controls {
+			display: flex;
+			justify-content: space-between;
+			padding: 2.55px 0;
+			width: 100%;
+   			position: relative; 
+			   button{
+					position: relative;
+					z-index: 3;
+					border: none;
+					background: none;
+			   }
+		}//tns-controls
+		.tns-nav {
+			display: flex;
+			justify-content: center;
+			padding: 10px;
+			position: absolute;
+			z-index: 2;
+			width: 100%;
+			button{
+				height: 10px;
+				margin: 2px;
+				padding: 5px;
+				border: 1px;
+				border-radius: 50%;
+				border-style: solid;
+				background-color:  $uwkc-light-blue;
+				border-color:  $uwkc-blue;
+				&.tns-nav-active{
+					background-color: $uwkc-orange;
+					border-color: $uwkc-orange;
+				}
+			}
+		}//tns-nav
+
+	}//tns-outer
+/*
+*
+* Style Overrides
+*
+*/
+	&.arrow-position_middle{
+		.tns-outer{
+			.tns-controls{
+				position: absolute;
+				left: -2rem;
+				top: 50%;
+				transform: translateY(-50%);
+				width: calc(100% + 4rem);
+			}
+		}
+	}//arrow-position_middle
+
+	&.vertical-carousel{
+		.tns-outer{
+			display: flex;
+			div[id^="tns"][id$="-mw"]{
+				width: 100%;
+			}
+			.tns-nav{
+				width: auto;
+				flex-direction: column;
+				position: relative;
+			}
+			.tns-controls{
+				width: auto;
+				flex-direction: column;
+				button{
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+	
+}
+
