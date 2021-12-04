@@ -45,6 +45,10 @@
 		"arrow_position":{
 			"type": "string",
 			"default": "bottom"
+		},
+		"auto_height":{
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"keywords": [ "slide", "carousel"],

@@ -10,6 +10,7 @@
  $black: #000;
  $uwkc-blue: #768ec5;
  $uwkc-light-blue: #b2caff;
+ $uwkc-light-gray: #bababa;
 
 .wp-block-create-block-uwkc-carousel {
 	.tns-outer{
@@ -20,9 +21,19 @@
    			border: none;
 			margin-bottom: 10px;
 			   .stop-start {
-					padding: 3px 8px;
-					border: #000 solid 2px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin: auto;
+					width: 45px;
+					height: 40px;
+					background-color: $uwkc-light-blue;
 					border-radius: 33%;
+					color:  darken($uwkc-light-blue, 50%);
+					&.arrow{
+						padding-left: 4px;
+						padding-top: 2px;
+					}
 			   }
 		}
 		.tns-controls {
@@ -84,6 +95,9 @@
 			display: flex;
 			div[id^="tns"][id$="-mw"]{
 				width: 100%;
+			}
+			button[data-action="stop"], button[data-action="start"]{
+				width: auto;
 			}
 			.tns-nav{
 				width: auto;

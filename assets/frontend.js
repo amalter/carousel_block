@@ -10,6 +10,7 @@ sliders.forEach( function (slide, i) {
   var set_axis = settings && settings.set_axis ? settings.set_axis : 'horizontal';
   var set_gutter = settings && settings.set_gutter ? 10 : 0;
   var show_arrows = settings && settings.show_arrows ? true : false;
+  var auto_height = settings && settings.auto_height ? true : false;
 
   var slider = tns({
     container: slide,
@@ -27,7 +28,7 @@ sliders.forEach( function (slide, i) {
     axis: set_axis, 
     gutter: set_gutter,
     arrowKeys: true,
-    lazyload: true    
+    autoHeight: auto_height    
   });
 });
 

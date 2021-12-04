@@ -50,7 +50,8 @@ export default function Edit( props ) {
 			set_axis,
 			set_gutter,
 			show_arrows,
-			arrow_position
+			arrow_position,
+			auto_height
 		},
 		setAttributes,
 	} = props;
@@ -69,7 +70,11 @@ export default function Edit( props ) {
 							<RadioControl
 								label="Slideshow Mode"
 								selected={ set_mode }
-								onChange={ set_mode => setAttributes({ set_mode }) }
+								onChange={ set_mode => {
+									set_mode === 'gallery'
+									? setAttributes({ set_mode, set_axis : 'horizontal' })
+									: setAttributes({ set_mode })
+								} }
 								options={ [
 									{ label: 'Carousel', value: 'carousel' },
 									{ label: 'Gallery', value: 'gallery' },
@@ -77,19 +82,23 @@ export default function Edit( props ) {
 							/>
 						</div>
 					</fieldset>
-					<fieldset id="uwkc-carousel-controls_axis">
-						<div className="blocks-base-control__radio">
-							<RadioControl
-								label="Slideshow Axis"
-								selected={ set_axis }
-								onChange={ set_axis => setAttributes({ set_axis }) }
-								options={ [
-									{ label: 'Horizontal', value: 'horizontal' },
-									{ label: 'Vertical', value: 'vertical' },
-								] }
-							/>
-						</div>
-					</fieldset>
+					{
+						set_mode === 'carousel' 
+							?	<fieldset id="uwkc-carousel-controls_axis">
+									<div className="blocks-base-control__radio">
+										<RadioControl
+											label="Slideshow Axis"
+											selected={ set_axis }
+											onChange={ set_axis => setAttributes({ set_axis }) }
+											options={ [
+												{ label: 'Horizontal', value: 'horizontal' },
+												{ label: 'Vertical', value: 'vertical' },
+											] }
+										/>
+									</div>
+								</fieldset>
+							: ''
+					}
 					<fieldset id="uwkc-carousel-controls_autoplay">
 						<legend className="blocks-base-control__label">
 							{ __( 'Autoplay', 'uwkc-carousel' ) }
@@ -101,9 +110,32 @@ export default function Edit( props ) {
 									: 'Autoplay is off'
 							}
 							checked={ auto_play }
-							onChange={ auto_play => setAttributes({ auto_play }) }
+							onChange={ auto_play => {
+								auto_play 
+								? setAttributes({ auto_play, auto_height : false })
+								: setAttributes({ auto_play })
+							}
+						}
 						/>
 					</fieldset>
+					{
+						!auto_play ? (
+							<fieldset id="uwkc-carousel-controls_autoheight">
+								<legend className="blocks-base-control__label">
+									{ __( 'Auto Height', 'uwkc-carousel' ) }
+								</legend>
+								<ToggleControl
+									label={
+										auto_height
+											? 'Auto Height is on'
+											: 'Auto Height is off'
+									}
+									checked={ auto_height }
+									onChange={ auto_height => setAttributes({ auto_height }) }
+								/>
+							</fieldset>
+						) : ''
+					} 
 					<fieldset id="uwkc-carousel-controls_gutter">
 						<legend className="blocks-base-control__label">
 							{ __( 'Gutter', 'uwkc-carousel' ) }
